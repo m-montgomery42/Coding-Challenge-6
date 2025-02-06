@@ -45,3 +45,31 @@ const calculateBonus = (salary, performanceRating) => {
   };
   calculateBonus(5000, "Excellent");
   calculateBonus(7000, "Good");
+
+// Task 4: Parameters and Arguments
+// Write a function calculateSubscriptionCost(plan, months, discount = 0) that calculates cost based on basic, premium, enterprise
+function calculateSubscriptionCost(plan, months, discount = 0) {
+    // cost per month for each plan
+    let planCost;
+    // cost for selected plan
+    if (plan === "Basic") {
+      planCost = 10;
+    } else if (plan === "Premium") {
+      planCost = 20;
+    } else if (plan === "Enterprise") {
+      planCost = 50;
+    } else {
+      console.log("Invalid plan");
+      return;
+    }
+    // total cost before discount
+    let totalCost = planCost * months;
+    // apply discount
+    totalCost -= totalCost * (discount / 100);
+    // Log the total cost with the discount applied
+    console.log(`Total Cost: $${totalCost}`);
+    // Return the total cost
+    return totalCost;
+  }
+  calculateSubscriptionCost("Basic", 6, 10);
+  calculateSubscriptionCost("Premium", 12, 0);
